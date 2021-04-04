@@ -1,0 +1,9 @@
+原始型別 Primitive Types：包含 number, string, boolean, undefined, null, ES6 介紹的 symbol 與時常會在函式型別裡看到的 void
+物件型別 Object Types，但我個人還會再細分成小類別，但這些型別的共同特徵是 —— 從原始型別或物件型別組合出來的複合型態（比如物件裡面的 Key-Value 個別是 string 和 number 型別組合成的）：
+基礎物件型別：包含 JSON 物件，陣列（Array<T>或T[]），類別以及類別產出的物件（也就是 Class 以及藉由 Class new 出來的 Instance）
+TypeScript 擴充型別：即 Enum 與 Tuple，內建在 TypeScript
+函式型別 Function Types：類似於 (input) => (Ouput) 這種格式的型別，後面會再多做說明
+明文型別 Literal Type：一個值本身也可以成為一個型別，比如字串 "Hello world" —— 若成為某變數的型別的話，它只能存剛好等於"Hello world"` 字串值；但通常會看到的是 Object Literal Type，後面也會再多做說明
+特殊型別：筆者自行分類的型別，即 any、never（TS 2.0釋出）以及最新的 unknown 型別（TS 3.0釋出），讀者可能覺得莫名其妙，不過這些型別的存在仍然有它的意義，而且很重要，陷阱總是出現在不理解這些特殊型別的特性
+複合型別：筆者自行分類的型別，即 union 與 intersection 的型別組合，但是跟其他的型別的差別在於：這類型的型別都是由邏輯運算子組成，分別為 | 與 &
+通用型別 Generic Types：留待進階的 TypeScript 文章介紹，一種讓程式碼可以變得更加通用的絕招
