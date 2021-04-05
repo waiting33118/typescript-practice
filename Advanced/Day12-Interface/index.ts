@@ -68,3 +68,29 @@ const tony3: Person = {
   hasPet: 'Ori'
 }
 
+// 變數或 JSON 物件格式傳入函式作為參數的案例
+
+function printPersonInfo(person: Person) {
+  console.log(`Name: ${person.name}`)
+  console.log(`Age is: ${person.age}`)
+  console.log(`Owns a pet? ${person.hasPet}`)
+}
+
+printPersonInfo({
+  name: 'Tony',
+  age: 23,
+  hasPet: true,
+
+  job: 'Dev',
+  nothingSpecial: null
+})
+
+let tonyInfo = {
+  name: 'Tony',
+  age: 23,
+  hasPet: true,
+  job: 'Dev',
+  nothingSpecial: null
+}
+
+printPersonInfo(tonyInfo)
