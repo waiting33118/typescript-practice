@@ -5,13 +5,14 @@ type TUserAccount = {
 }
 
 interface AccountSystem {
-  users: TUserAccount[]
-
-  currentUser?: TUserAccount
+  // both must be private
+  // users: TUserAccount[]
+  // currentUser?: TUserAccount
 
   signIn(account: string, password: string): void
 
   signOut(): void
+  fetchTotalAmount(): void
 }
 
 interface TransactionSystem {
@@ -23,12 +24,12 @@ interface ICashMachine extends AccountSystem, TransactionSystem { }
 
 
 class CashMachine implements ICashMachine {
-  users: TUserAccount[] = [
-    { account: 'A', password: '123', money: 2000 },
-    { account: 'B', password: '123', money: 3000 }
-  ]
+  constructor(
+    private users: TUserAccount[],
+    private currentUser?: TUserAccount
+  ) { }
 
-  currentUser?: TUserAccount
+
 
   signIn(account: string, password: string) {
     for (let i = 0; i < this.users.length; i++) {
@@ -45,6 +46,12 @@ class CashMachine implements ICashMachine {
 
   signOut() {
     this.currentUser = undefined
+  }
+
+  fetchTotalAmount() {
+    console.log(`
+      Your total amount: ${this.currentUser?.money}
+    `)
   }
 
   deposit(amount: number) {
@@ -76,24 +83,27 @@ function printAccountInfo(input?: TUserAccount) {
   console.log('No User Found')
 }
 
+const users: TUserAccount[] = [
+  { account: 'A', password: '123', money: 2000 },
+  { account: 'B', password: '123', money: 3000 }
+]
 
-
-const machine = new CashMachine()
+const machine = new CashMachine(users)
 console.log('Initialize')
-printAccountInfo(machine.currentUser)
+// printAccountInfo(machine.currentUser)
 
 machine.signIn('A', '123')
 console.log('sign in')
-printAccountInfo(machine.currentUser)
+// printAccountInfo(machine.currentUser)
 
 machine.deposit(300)
-printAccountInfo(machine.currentUser)
+// printAccountInfo(machine.currentUser)
 
 machine.withdraw(1000)
-printAccountInfo(machine.currentUser)
+// printAccountInfo(machine.currentUser)
 
-
+machine.fetchTotalAmount()
 machine.signOut()
-printAccountInfo(machine.currentUser)
+// printAccountInfo(machine.currentUser)
 
-console.log(machine.users)
+// console.log(machine.users)
