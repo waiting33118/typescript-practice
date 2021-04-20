@@ -75,7 +75,7 @@ class TrainTicket extends TicketSystem {
     )
   }
 
-  private stops: string[] = [
+  private static stops: string[] = [
     'Pingtung',
     'Kaohsiung',
     'Tainan',
@@ -84,7 +84,7 @@ class TrainTicket extends TicketSystem {
     'Taipei'
   ]
 
-  private trainStationsDetail: TrainStation[] = [
+  private static trainStationsDetail: TrainStation[] = [
     { name: 'Pingtung', nextStop: 'Kaohsiung', duration: [2, 30, 0] },
     { name: 'Kaohsiung', nextStop: 'Tainan', duration: [1, 45, 30] },
     { name: 'Tainan', nextStop: 'Taichung', duration: [3, 20, 0] },
@@ -93,8 +93,8 @@ class TrainTicket extends TicketSystem {
   ]
 
   private isStopExist(stop: string): boolean {
-    for (let i = 0; i < this.stops.length; i++) {
-      const existedStop = this.stops[i]
+    for (let i = 0; i < TrainTicket.stops.length; i++) {
+      const existedStop = TrainTicket.stops[i]
       if (existedStop === stop) return true
     }
     return false
@@ -111,8 +111,8 @@ class TrainTicket extends TicketSystem {
       let stopFound = false
 
 
-      for (let i = 0; i < this.trainStationsDetail.length; i++) {
-        const detail = this.trainStationsDetail[i]
+      for (let i = 0; i < TrainTicket.trainStationsDetail.length; i++) {
+        const detail = TrainTicket.trainStationsDetail[i]
 
         if (!stopFound && detail.name === startingPoint) {
           stopFound = true
