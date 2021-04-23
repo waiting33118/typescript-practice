@@ -130,4 +130,28 @@ class D2 {
   }
 }
 
-let test: D1 = new D2('123', 23)
+// let test: D1 = new D2('123', 23)
+
+
+
+type TA = {
+  hello: string
+}
+type TB = {
+  hello: string
+}
+
+interface IA {
+  hello: string
+}
+interface IB {
+  hello: string
+}
+
+function logTypeA(obj: TA) {
+  console.log(obj)
+}
+
+logTypeA(<TB>{ hello: 'World' })
+logTypeA(<IA>{ hello: 'World' })
+logTypeA(<IB>{ hello: 'World' })
