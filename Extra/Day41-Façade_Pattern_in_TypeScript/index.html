@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script src="./dist/bundle.js" defer></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      .map-wrapper {
+        position: relative;
+      }
+      #map {
+        width: 100vw;
+        height: 100vh;
+      }
+      .input-wrapper {
+        position: absolute;
+        right: 10pt;
+        top: 10pt;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 8pt 15pt;
+        border: 2pt;
+      }
+      label[for='select-district'] {
+        color: white;
+        vertical-align: middle;
+        margin-right: 8pt;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="map-wrapper">
+      <div id="map"></div>
+
+      <div class="input-wrapper">
+        <label for="select-district" id="select-district-label"
+          >選擇行政區</label
+        >
+        <select name="district" id="select-district">
+        </select>
+      </div>
+    </div>
+  </body>
+</html>
